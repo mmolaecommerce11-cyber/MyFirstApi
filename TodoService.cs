@@ -24,4 +24,16 @@ public class TodoService
         return true;
     }
 
+    //Toggle Complete Status of a TodoItem by Id
+    public bool ToggleComplete(int id)
+    {
+        var todo = _todos.FirstOrDefault(t => t.Id == id); // we use this method to find the item by id
+        if (todo == null)
+        {
+            return false;
+        }
+        todo.IsComplete = !todo.IsComplete;
+        return true;
+    }
+
 }
